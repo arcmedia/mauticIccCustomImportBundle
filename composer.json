@@ -16,8 +16,5 @@
   },
   "scripts": {
   },
-  "minimum-stability": "dev",
-  "require": {
-    "mautic/core-lib": "^7.0"
-  }
+  "minimum-stability": "dev"
 }
