@@ -5,16 +5,17 @@ declare(strict_types=1);
 namespace MauticPlugin\IccCustomImportBundle;
 
 use Mautic\IntegrationsBundle\Bundle\AbstractPluginBundle;
+use Mautic\PluginBundle\Entity\Plugin;
+use Mautic\CoreBundle\Factory\MauticFactory;
 
-//use Mautic\CoreBundle\Configurator\Configurator;
-//use Mautic\PluginBundle\Bundle\PluginBundleBase;
-//use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
-
-//class IccCustomImportBundle extends PluginBundleBase implements Configurator
 class IccCustomImportBundle extends AbstractPluginBundle
 {
-//    public static function configure(ContainerConfigurator $containerConfigurator): void
-//    {
-//        $containerConfigurator->import(__DIR__ . '/Config/services.php');
-//    }
+    public static function onPluginUpdate(Plugin $plugin, MauticFactory $factory, $metadata = null, ?\Doctrine\DBAL\Schema\Schema $installedSchema = null): void
+    {
+        if ($metadata === null) {
+            $metadata = [];
+        }
+
+        parent::onPluginUpdate($plugin, $factory, $metadata, $installedSchema);
+    }
 }
