@@ -11,6 +11,7 @@ use Mautic\LeadBundle\Model\ListModel;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 class ImportFileKundenumfrageController extends AjaxController
@@ -28,7 +29,7 @@ class ImportFileKundenumfrageController extends AjaxController
     )
     {}
 
-    public function importFileKundenumfrageAction(Request $request)
+    public function importFileKundenumfrageAction(Request $request): JsonResponse
     {
         ini_set('upload_max_filesize', '7000000'); //7 mb
         ini_set('post_max_size', '7000000'); //7 mb

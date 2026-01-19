@@ -10,25 +10,6 @@ return [
     'author'      => 'Arcmedia',
     'version'     => '2.0.0',
     'services'    => [
-        'controllers' => [
-            ImportFileVbCodeController::class => [
-                'class'     => ImportFileVbCodeController::class,
-                'arguments' => [
-                    'monolog.logger.mautic',
-                    'mautic.lead.model.import',
-                    '%mautic.tmp_path%',
-                ],
-            ],
-            ImportFileKundenumfrageController::class => [
-                'class'     => ImportFileKundenumfrageController::class,
-                'arguments' => [
-                    'monolog.logger.mautic',
-                    'mautic.lead.model.import',
-                    'mautic.lead.model.list',
-                    '%mautic.tmp_path%',
-                ],
-            ],
-        ],
         'integrations' => [
             'mautic.integration.icccustomimport' => [
                 'class'     => IccCustomImportIntegration::class,
@@ -50,7 +31,6 @@ return [
                     'mautic.lead.model.dnc',
                     'mautic.lead.field.fields_with_unique_identifier',
                 ],
-                //'tags'=> ['mautic.integration'],
             ],
         ],
     ],
@@ -58,12 +38,12 @@ return [
         'main' => [
             'plugin_icc_customimport_importvbcode' => [
                 'path'       => '/icccustomimport/importfilevbcode',
-                'controller' => 'MauticPlugin\IccCustomImportBundle\Controller\ImportFileVbCodeController::importFileVBCodeAction',
+                'controller' => ImportFileVbCodeController::class . '::importFileVBCodeAction',
                 'method'     => 'POST',
             ],
             'plugin_icc_customimport_importkundenumfrage' => [
                 'path'       => '/icccustomimport/importfilekundenumfrage',
-                'controller' => 'MauticPlugin\IccCustomImportBundle\Controller\ImportFileKundenumfrageController::importFileKundenumfrageAction',
+                'controller' => ImportFileKundenumfrageController::class . '::importFileKundenumfrageAction',
                 'method'     => 'POST',
             ],
         ],

@@ -6,6 +6,7 @@ use Mautic\CoreBundle\Controller\AjaxController;
 use Mautic\LeadBundle\Entity\Import;
 use Mautic\LeadBundle\Model\ImportModel;
 use Psr\Log\LoggerInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -22,7 +23,7 @@ class ImportFileVbCodeController extends AjaxController
     )
     {}
 
-    public function importFileVBCodeAction(Request $request)
+    public function importFileVBCodeAction(Request $request): JsonResponse
     {
         ini_set('upload_max_filesize', '7000000'); //7 mb
         ini_set('post_max_size', '7000000'); //7 mb
