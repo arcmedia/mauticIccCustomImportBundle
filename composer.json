@@ -13,7 +13,7 @@
     }
   },
   "extra": {
-    "install_path": "plugins/IccCustomImportBundle"
+    "install-directory-name": "IccCustomImportBundle"
   },
   "require-dev": {
     "phpstan/phpstan": "^0.11.12",

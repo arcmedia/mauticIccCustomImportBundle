@@ -72,18 +72,6 @@ class IccCustomImportIntegration extends AbstractIntegration
         return 'plugins/IccCustomImportBundle/Assets/img/logo.png'; 
     }
 
-//    public function getSupportedFeatureTooltips()
-//    {
-//    }
-//
-//    public function getSecretKeys()
-//    {
-//    }
-//
-//    public function getFormDisplaySettings()
-//    {
-//    }
-
     public function getDataPriority(): bool
     {
         return false;
